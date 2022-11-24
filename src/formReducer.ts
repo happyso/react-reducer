@@ -47,8 +47,11 @@ export const formReducer = (state: IState, action: Action) => {
         ...state,
         quantity: state.quantity + 1,
       };
-    case 'DECREASE':
-      return { ...state, quantity: state.quantity - 1 };
+    case 'DECREASE': {
+      const result = state.quantity - 1;
+      return { ...state, quantity: result <= 0 ? 0 : state.quantity - 1 };
+    }
+
     default:
       return state;
   }
