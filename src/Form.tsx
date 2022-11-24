@@ -40,7 +40,7 @@ const Form = () => {
           Add Tags
         </button>
         <div className="tags">
-          {state.tags.map((tag: any) => (
+          {state.tags.map((tag: string) => (
             <small onClick={() => dispatch({ type: 'REMOVE_TAG', payload: tag })} key={tag}>
               {tag}
             </small>
